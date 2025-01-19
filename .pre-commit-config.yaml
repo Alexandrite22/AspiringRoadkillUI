@@ -1,0 +1,30 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v9.13.0
+    hooks:
+      - id: commitlint
+        stages: [commit-msg]
+        additional_dependencies: ["@open-turo/commitlint-config-conventional"]
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.1.0
+    hooks:
+      - id: prettier
+        stages: [commit]
+        exclude: '.*/templates/.*\.html|public/.*'
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v8.56.0
+    hooks:
+      - id: eslint
+        additional_dependencies:
+          - eslint@8.57.0
+          - eslint-config-google@0.7.1
+          - eslint-loader@1.6.1
+          - eslint-plugin-cypress@^3.3.0
+          - eslint-plugin-react@6.10.3
+          - eslint-plugin-jest@28.5.0
+          - babel-eslint@6.1.2
