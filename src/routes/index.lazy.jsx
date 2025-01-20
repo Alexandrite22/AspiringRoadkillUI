@@ -7,12 +7,10 @@ export const Route = createLazyFileRoute("/")({
 
 function Index() {
   return (
-    <Paper
-      sx={{ p: 2,
-      backgroundColor: "greyscaleRK.20",
-      display: "flex",
-     }}>
-      <Typography variant="headingLarge" color="textRK">Home</Typography>
+    <Paper sx={{ p: 2, backgroundColor: "greyscaleRK.20", display: "flex" }}>
+      <Typography variant="headingLarge" color="textRK">
+        Home
+      </Typography>
     </Paper>
-  )
+  );
 }
