@@ -44,7 +44,7 @@ export const Route = createRootRoute({
                 position: "fixed",
                 top: 0,
                 left: 0,
-                backgroundColor: "electricBlue.300",
+                backgroundColor: "electricBlueRK.60",
                 padding: 2,
               }}
             >
