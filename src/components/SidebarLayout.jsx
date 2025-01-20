@@ -1,10 +1,15 @@
 import { Box, Paper, Typography } from "@mui/material";
-import { Link, Outlet } from "@tanstack/react-router";
-import breakpoints from "../themes/breakpoints";
+import { Outlet } from "@tanstack/react-router";
+import LinkMenuController from "./LinkMenuController";
+import { useTheme } from "@mui/material/styles";
 
+import HomeIcon from "@mui/icons-material/Home";
+import InfoIcon from "@mui/icons-material/Info";
 import Logo from "../assets/Logo.png";
 
 export default function SidebarLayout() {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
@@ -13,10 +18,10 @@ export default function SidebarLayout() {
         height: "100vh",
         width: "100vw",
         display: "flex",
-        [breakpoints.breakpoints.down("tablet")]: {
+        [theme.breakpoints.down("sm")]: {
           flexDirection: "column",
         },
-        [breakpoints.breakpoints.up("tablet")]: {
+        [theme.breakpoints.up("sm")]: {
           flexDirection: "row",
         },
       }}
@@ -26,19 +31,19 @@ export default function SidebarLayout() {
         sx={{
           display: "flex",
           backgroundColor: "electricBlueRK.60",
-          [breakpoints.breakpoints.down("tablet")]: {
+          [theme.breakpoints.down("sm")]: {
             width: "100vw",
             height: "5em",
             flexDirection: "row",
             padding: "1em",
           },
-          [breakpoints.breakpoints.up("tablet")]: {
+          [theme.breakpoints.up("sm")]: {
             width: "12em",
             height: "100vh",
             flexDirection: "column",
             padding: "1.25em",
           },
-          [breakpoints.breakpoints.up("laptop")]: {
+          [theme.breakpoints.up("lg")]: {
             width: "15em",
             padding: "1.5em",
           },
@@ -59,30 +64,34 @@ export default function SidebarLayout() {
             }}
           >
             <Typography variant="textNormal" color="textRK">
-              Under{"\n"}Construction
+              Under
+            </Typography>
+            <Typography variant="textNormal" color="textRK">
+              Construction
             </Typography>
           </Box>
         </Box>
-        <Link to="/about" className="[&.active]:font-bold">
-          <Typography variant="textLarge" color="textRK">
-            About
-          </Typography>
-        </Link>
+        <LinkMenuController
+          links={[
+            { href: "/", text: "Home", icon: <HomeIcon /> },
+            { href: "/about", text: "About", icon: <InfoIcon /> },
+          ]}
+        />
       </Paper>
       <Box
         backgroundColor="greyscaleRK.10"
         sx={{
-          [breakpoints.breakpoints.down("tablet")]: {
+          [theme.breakpoints.down("sm")]: {
             width: "100vw",
             height: "calc(100vh - 5em)",
             padding: "1em",
           },
-          [breakpoints.breakpoints.up("tablet")]: {
+          [theme.breakpoints.up("sm")]: {
             width: "calc(100vw - 12em)",
             height: "100vh",
             padding: "1.5em",
           },
-          [breakpoints.breakpoints.up("laptop")]: {
+          [theme.breakpoints.up("lg")]: {
             width: "calc(100vw - 15em)",
             padding: "2em",
           },
