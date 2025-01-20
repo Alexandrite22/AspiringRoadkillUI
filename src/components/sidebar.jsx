@@ -1,9 +1,25 @@
-import { Paper } from "@mui/material";
+import { Paper, Typography } from "@mui/material";
+import PropTypes from "prop-types";
 
-function Sidebar() {
+Sidebar.propTypes = {
+  children: PropTypes.node,
+};
+
+function Sidebar({ children }) {
   return (
-    <Paper>
-      <h3>Welcome Home!</h3>
+    <Paper
+      sx={{
+        width: "15vw",
+        height: "100vh",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        backgroundColor: "electricBlueRK.60",
+        padding: 2,
+      }}
+    >
+      <Typography variant="headingLarge">is this responsive?</Typography>
+      {children}
     </Paper>
   );
 }
