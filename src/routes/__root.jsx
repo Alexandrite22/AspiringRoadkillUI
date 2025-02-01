@@ -3,6 +3,7 @@ import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import {
   createTheme,
+  responsiveFontSizes,
   ThemeProvider,
   CssBaseline,
   Checkbox,
@@ -37,7 +38,7 @@ export const Route = createRootRoute({
     return (
       <>
         <ColorModeContext.Provider value={colorMode}>
-          <ThemeProvider theme={theme}>
+          <ThemeProvider theme={responsiveFontSizes(theme)}>
             <CssBaseline />
             <meta
               name="viewport"
@@ -48,13 +49,26 @@ export const Route = createRootRoute({
             </SidebarLayout>
             <Checkbox
               sx={{
-                color: "black",
-                "&.Mui-checked": { color: "white" },
+                backgroundColor: "white",
+                "&.Mui-checked": {
+                  color: "white",
+                  backgroundColor: "black",
+                },
                 position: "fixed",
-                top: 15,
-                right: 15,
+                [theme.breakpoints.down("sm")]: {
+                  bottom: 15,
+                },
+                [theme.breakpoints.up("sm")]: {
+                  top: 18,
+                  right: 18,
+                },
+                [theme.breakpoints.up("md")]: {
+                  top: 20,
+                  right: 20,
+                },
                 margin: 2,
               }}
+              size="small"
               icon={<Brightness5Icon style={{ color: "text" }} />}
               checkedIcon={<NightsStayIcon style={{ color: "text" }} />}
               checked={mode === "dark"}

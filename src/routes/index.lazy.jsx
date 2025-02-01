@@ -16,7 +16,16 @@ function Home() {
         height: "100%",
       }}
     >
-      <Typography variant="headingLarge" color="textRK">
+      <Typography variant="h1" color="textRK">
+        Home
+      </Typography>
+      <Typography variant="h2" color="textRK">
+        Home
+      </Typography>
+      <Typography variant="body1" color="textRK">
+        Home
+      </Typography>
+      <Typography variant="body2" color="textRK">
         Home
       </Typography>
     </Paper>
